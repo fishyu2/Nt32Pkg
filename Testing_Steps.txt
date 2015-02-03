@@ -1,0 +1,20 @@
+================================================
+Goals:
+
+Test for local account configuration(name and email), push to remote repository without wirte access, basic git operation.
+
+
+================================================
+Test Steps:
+
+1. Clone form remote repository(fishyu2/Nt32Pkg)
+	git clone https://github.com/fishyu2/Nt32Pkg
+2. Change local account informantion
+	git config user.name
+	git config user.email
+3. Create Testing_Steps.txt and .gitignore
+4. Add Testing_Steps.txt and commit
+	git add -A
+	git commit -m "Add Testing_Steps.txt and .gitignore"
+5. Try to push to remote repository
+	git push origin master
