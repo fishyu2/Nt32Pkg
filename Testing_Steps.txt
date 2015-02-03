@@ -18,3 +18,12 @@ Test Steps:
 	git commit -m "Add Testing_Steps.txt and .gitignore"
 5. Try to push to remote repository
 	git push origin master
+
+	Failed:
+	remote: Permission to fishyu2/Nt32Pkg.git denied to d12823cc4281bfe17f3ad8c7e78134bad38b46c.
+	fatal: unable to access 'https://github.com/fishyu2/Nt32Pkg/': The requested URL returned error: 403
+6. Fork from fishyu2's repository(TianoYu/Nt32Pkg)
+7. Add remote in local enviroment
+	git add remote TianoYu https://github.com/TianoYu/Nt32Pkg
+8. Try to push to remote(TianoYu) repository again
+	successed
