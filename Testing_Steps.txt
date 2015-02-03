@@ -27,6 +27,37 @@ Test Steps:
 	git add remote TianoYu https://github.com/TianoYu/Nt32Pkg
 8. Try to push to remote(TianoYu) repository again
 	successed
-***************
-Add something different on branchtest to test conflict
-***************
+***************************************************
+Add something different here to test conflict
+	git checkout -b branchtest
+	make some commits
+***************************************************
+9. Continue to test
+   Ctreate a remote branch
+	git checkout branchtest
+	git push TianoYu branchtest
+10. Make local branch: branchtest tracking the remote branch(TianoYu/branchtest)
+	git branch -u TianoYu/branchtest
+11. Change back to mater branch, modify Testing_Steps.txt and commit
+	git checkout master
+	git commit -a -m "Add test steps on master branch after ctreate topic branch"
+	
+	git log --oneline --decorate --graph --all
+	* 61215eb (HEAD, master) Add test steps on master branch after create tpoic branch
+	*   f2fd763 (TianoYu/master) Merge branch 'branchtest'
+	|\  
+	* | ac1ee11 Add some test steps
+	| | * 9108c77 (topicbranch) Modify branchtest.txt on topicbranch
+	| |/  
+	| * 782bb8a (TianoYu/branchtest, branchtest) Modify branchtest.txt
+	| * 2b4c9fb Modify Testing_Steps.txt on branchtest for testing conflict
+	| * 5ac40ab Add test file on branchtest
+	|/  
+	* ff064e2 Add ignore file
+	* e7a1556 Add Testing_Steps.txt
+	* 70e908f (origin/master, origin/HEAD) Add all EDKII Nt32Pkg
+	* a17c535 Initial commit
+	git add Testing_Steps.txt
+	git commit --amend
+12. Push to remote master
+	git push
