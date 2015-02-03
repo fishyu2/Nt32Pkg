@@ -18,3 +18,7 @@ Test Steps:
 	git commit -m "Add Testing_Steps.txt and .gitignore"
 5. Try to push to remote repository
 	git push origin master
+
+***************
+Add something different on branchtest to test conflict
+***************
