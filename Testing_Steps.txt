@@ -27,3 +27,6 @@ Test Steps:
 	git add remote TianoYu https://github.com/TianoYu/Nt32Pkg
 8. Try to push to remote(TianoYu) repository again
 	successed
+***************
+Add something different on branchtest to test conflict
+***************
