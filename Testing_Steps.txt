@@ -1,0 +1,63 @@
+================================================
+Goals:
+
+Test for local account configuration(name and email), push to remote repository without wirte access, basic git operation.
+
+
+================================================
+Test Steps:
+
+1. Clone form remote repository(fishyu2/Nt32Pkg)
+	git clone https://github.com/fishyu2/Nt32Pkg
+2. Change local account informantion
+	git config user.name
+	git config user.email
+3. Create Testing_Steps.txt and .gitignore
+4. Add Testing_Steps.txt and commit
+	git add -A
+	git commit -m "Add Testing_Steps.txt and .gitignore"
+5. Try to push to remote repository
+	git push origin master
+
+	Failed:
+	remote: Permission to fishyu2/Nt32Pkg.git denied to d12823cc4281bfe17f3ad8c7e78134bad38b46c.
+	fatal: unable to access 'https://github.com/fishyu2/Nt32Pkg/': The requested URL returned error: 403
+6. Fork from fishyu2's repository(TianoYu/Nt32Pkg)
+7. Add remote in local enviroment
+	git add remote TianoYu https://github.com/TianoYu/Nt32Pkg
+8. Try to push to remote(TianoYu) repository again
+	successed
+***************************************************
+Add something different here to test conflict
+	git checkout -b branchtest
+	make some commits
+***************************************************
+9. Continue to test
+   Ctreate a remote branch
+	git checkout branchtest
+	git push TianoYu branchtest
+10. Make local branch: branchtest tracking the remote branch(TianoYu/branchtest)
+	git branch -u TianoYu/branchtest
+11. Change back to mater branch, modify Testing_Steps.txt and commit
+	git checkout master
+	git commit -a -m "Add test steps on master branch after ctreate topic branch"
+	
+	git log --oneline --decorate --graph --all
+	* 61215eb (HEAD, master) Add test steps on master branch after create tpoic branch
+	*   f2fd763 (TianoYu/master) Merge branch 'branchtest'
+	|\  
+	* | ac1ee11 Add some test steps
+	| | * 9108c77 (topicbranch) Modify branchtest.txt on topicbranch
+	| |/  
+	| * 782bb8a (TianoYu/branchtest, branchtest) Modify branchtest.txt
+	| * 2b4c9fb Modify Testing_Steps.txt on branchtest for testing conflict
+	| * 5ac40ab Add test file on branchtest
+	|/  
+	* ff064e2 Add ignore file
+	* e7a1556 Add Testing_Steps.txt
+	* 70e908f (origin/master, origin/HEAD) Add all EDKII Nt32Pkg
+	* a17c535 Initial commit
+	git add Testing_Steps.txt
+	git commit --amend
+12. Push to remote master
+	git push
